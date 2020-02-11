@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
         UserEntity user = dataProvider.getUser();
 
         Intent intent = new Intent(this, SecondActivity.class);
-        intent.putExtra(SecondActivity.INTENT_KEY,user);
+        Bundle args = new Bundle();
+        args.putSerializable(SecondActivity.INTENT_KEY,user);
+        intent.putExtras(args);
         startActivity(intent);
     }
 }

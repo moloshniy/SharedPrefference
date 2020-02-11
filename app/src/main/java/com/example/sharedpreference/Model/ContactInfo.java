@@ -1,6 +1,8 @@
 package com.example.sharedpreference.Model;
 
-public class ContactInfo {
+import java.io.Serializable;
+
+public class ContactInfo implements Serializable {
     private String phone;
     private String email;
 

@@ -1,6 +1,8 @@
 package com.example.sharedpreference.Model;
 
-public class Profile {
+import java.io.Serializable;
+
+public class Profile implements Serializable {
     private int age;
     private String name;
 

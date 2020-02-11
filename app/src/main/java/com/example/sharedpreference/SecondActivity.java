@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.example.sharedpreference.Model.UserEntity;
 
+import java.io.Serializable;
+
 public class SecondActivity extends AppCompatActivity {
     public static final String INTENT_KEY = "INTENT_KEY";
 
@@ -24,11 +26,12 @@ public class SecondActivity extends AppCompatActivity {
         emailTextView = findViewById(R.id.textview_email);
         phoneTextView = findViewById(R.id.textview_phone);
 
-        if (getIntent().getParcelableExtra(INTENT_KEY) == null ) return;
-        UserEntity user = getIntent().getParcelableExtra(INTENT_KEY);
+        Bundle args = getIntent().getExtras();
+        if (args == null ) return;
+
+        UserEntity user = (UserEntity) args.getSerializable(INTENT_KEY);
         ageTextView.setText(Integer.toString(user.getProfile().getAge()));
         nameTextView.setText(user.getProfile().getName());
-
         emailTextView.setText(user.getContactInfo().getEmail());
         phoneTextView.setText(user.getContactInfo().getPhone());
     }
